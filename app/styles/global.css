@@ -1,0 +1,257 @@
+
+:root {
+    /* Background Colors */
+    --darkGray: #20232e;
+    --medGray: #323747;
+    --lightGray: #8d97b8;
+    --lighterGray: #a9b2cf;
+    --lightBlue: #b0c0f5;
+
+    /* Text Color */
+    --creme: #FDF4E7;
+
+    /* Accent Colors */
+    --pink: #FF98FF;
+    --blue: #46ECFF;
+    --green: #81FFA7;
+    --yellow: #FFE874;
+    --orange: #FFA565;
+
+    /* Font Sizes */
+    --small: 1.4rem;
+    --medium: 1.75rem;
+    --large: 2rem;
+    --xlarge: 2.5rem;
+    --xxlarge: 3rem;
+    --xxxlarge: 3.5rem;
+
+    /* Padding */
+    --smallPadding: 1rem;
+    --mediumPadding: 2rem;
+    --largePadding: 3rem;
+    --xlargePadding: 4rem;
+    --xxlargePadding: 6rem;
+
+    /* Font Weights */
+    --light: 300;
+    --regular: 400;
+    --semiBold: 500;
+    --bold: 600;
+    --extraBold: 700;
+    --black: 900;
+
+    /* Spacing */
+    --smallSpacing: 1rem;
+    --mediumSpacing: 2rem;
+    --largeSpacing: 3rem;
+    --xlargeSpacing: 4rem;
+    --xxlargeSpacing: 6rem;
+    --xxxlargeSpacing: 8rem;
+
+    /* Border Radius */
+    --smallRadius: 3px;
+    --mediumRadius: 7px;
+    --largeRadius: 15px;
+    --xlargeRadius: 23px;
+    --xxlargeRadius: 44px;
+    --xxxlargeRadius: 99px;
+    --full: "50%"
+
+    /* Shadows */
+    --smallShadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, .24);
+    --smallShadowBlack: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, .24);
+    --mediumShadowBlack: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, .24);
+    --largeShadowBlack: 0 10px 20px rgba(0, 0, 0, 0.12), 0 6px 6px rgba(0, 0, 0, .24);
+    --xlargeShadowBlack: 0 14px 28px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, .24);
+    --xxlargeShadowBlack: 0 19px 38px rgba(0, 0, 0, 0.12), 0 15px 12px rgba(0, 0, 0, .24);
+    --xxxlargeShadowBlack: 0 24px 48px rgba(0, 0, 0, 0.12), 0 20px 15px rgba(0, 0, 0, .24);
+    --smallShadowWhite: 0 1px 3px rgba(255, 255, 255, 0.12), 0 1px 2px rgba(255, 255, 255, .24);
+    --mediumShadowWhite: 0 3px 6px rgba(255, 255, 255, 0.12), 0 3px 6px rgba(255, 255, 255, .24);
+    --largeShadowWhite: 0 10px 20px rgba(255, 255, 255, 0.12), 0 6px 6px rgba(255, 255, 255, .24);
+    --xlargeShadowWhite: 0 14px 28px rgba(255, 255, 255, 0.12), 0 10px 10px rgba(255, 255, 255, .24);
+    --xxlargeShadowWhite: 0 19px 38px rgba(255, 255, 255, 0.12), 0 15px 12px rgba(255, 255, 255, .24);
+    --xxxlargeShadowWhite: 0 24px 48px rgba(255, 255, 255, 0.12), 0 20px 15px rgba(255, 255, 255, .24);
+
+
+    /* Transitions */
+    --defaultTransition: all 0.3s ease-in-out;
+    --medTransition: all 0.5s ease-in-out;
+    --slowTransition: all 0.7s ease-in-out;
+    --defaultTransitionDelay: all 0.3s ease-in-out 0.3s;
+    --defaultTransitionFast: all 0.1s ease-in-out;
+    --defaultTransitionFastDelay: all 0.1s ease-in-out 0.1s;
+
+    /* Breakpoints */
+    --smallBreakpoint: 576px;
+    --mediumBreakpoint: 768px;
+    --largeBreakpoint: 992px;
+    --xlargeBreakpoint: 1200px;
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    /* Reset to 10px, easier to work with rem */
+}
+
+body {
+    font-size: 1.25rem;
+    /* 16px */
+    padding: 2rem;
+    background-color: var(--darkGray);
+    line-height: 1.25;
+    font-family: 'Trebuchet MS';
+    color: var(--creme);
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: var(--xlarge);
+}
+
+h2 {
+    font-size: var(--large);
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.animate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+button {
+    cursor: pointer;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.bigContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.headingContainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: var(--smallPadding);
+    background-color: var(--darkGray);
+    border-radius: var(--smallRadius);
+    margin: 0px 0px var(--smallSpacing) 0px;
+    color: var(--blue);
+    box-shadow: var(--mediumShadowBlack);
+}
+
+.contentContainer {
+    width: 100%;
+    max-width: 400px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: var(--smallPadding);
+    margin: 0px 0px var(--smallSpacing) 0px;
+    background-color: var(--blue);
+    border-radius: var(--smallRadius);
+    box-shadow: var(--smallShadowBlack);
+}
+
+.sectionContainer{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--medGray);
+    padding: var(--mediumPadding);
+    border-radius: var(--smallRadius);
+    box-shadow: var(--smallShadowBlack);
+}
+
+.codeContainer {
+    width: 100%;
+    max-width: "400px";
+    overflow: auto;
+    font-size: "10px";
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--darkGray);
+    padding: var(--smallPadding);
+    border-radius: var(--smallRadius);
+    box-shadow: var(--smallShadowBlack);
+    margin: var(--smallSpacing) 0px;
+}
+
+.hljs {
+    font-size: 8px;
+}
+
+/* ************************************ MEDIA QUERIES ************************************ */
+/* SMALL */
+@media (max-width: 600px) {
+    .contentContainer {
+        max-width: 500px;
+    }
+    html {
+        font-size: 56.25%;
+          }
+
+}
+
+
+/* Medium */
+@media (min-width: 601px) and (max-width: 900px) {
+    .contentContainer {
+        max-width: 700px;
+    }
+  html {
+      font-size: 62.5%;
+  }
+}
+
+
+/* Large */
+@media (min-width: 901px) {
+    .contentContainer {
+        max-width: 800px;
+    }
+    html {
+        font-size: 75%;
+    }
+}
+

@@ -1,0 +1,394 @@
+/* The original Night Owl theme */
+pre code.hljs {
+    display: block;
+    /* overflow-x: scroll ; */
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+code.hljs {
+    padding: 10px 15px 10px 15px;
+    margin: 0 auto;
+    margin-top: 5px;
+    font-size: 11px;
+    border-radius: 4px;
+    max-width: 800px;
+    /* overflow-x:scroll ; */
+}
+
+/* Font size for medium screens */
+@media (max-width: 900px) {
+    code.hljs {
+        font-size: 11px;
+    }
+}
+
+/* Font size for small screens */
+@media (max-width: 700px) {
+    code.hljs {
+        font-size: 11px;
+
+    }
+}
+
+/* Font size for small screens */
+@media (max-width: 468px) {
+    code.hljs {
+        font-size: 10px;
+
+    }
+}
+
+
+
+.hljs {
+    /* background: #011627; */
+    background: #383640 !important;
+    color: #d6deeb
+}
+
+.hljs-keyword {
+    color: #c792ea;
+    font-style: italic
+}
+
+.hljs-built_in {
+    color: #addb67;
+    font-style: italic
+}
+
+.hljs-type {
+    color: #82aaff
+}
+
+.hljs-literal {
+    color: #ff5874
+}
+
+.hljs-number {
+    color: #f78c6c
+}
+
+.hljs-regexp {
+    color: #5ca7e4
+}
+
+.hljs-string {
+    color: #ecc48d
+}
+
+.hljs-subst {
+    color: #d3423e
+}
+
+.hljs-symbol {
+    color: #82aaff
+}
+
+.hljs-class {
+    color: #ffcb8b
+}
+
+.hljs-function {
+    color: #82aaff
+}
+
+.hljs-title {
+    color: #dcdcaa;
+    font-style: italic
+}
+
+.hljs-params {
+    color: #7fdbca
+}
+
+.hljs-comment {
+    color: #637777;
+    font-style: italic
+}
+
+.hljs-doctag {
+    color: #7fdbca
+}
+
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+    color: #82aaff
+}
+
+.hljs-meta .hljs-string {
+    color: #ecc48d
+}
+
+.hljs-section {
+    color: #82b1ff
+}
+
+.hljs-attr,
+.hljs-name,
+.hljs-tag {
+    color: #7fdbca
+}
+
+.hljs-attribute {
+    color: #80cbc4
+}
+
+.hljs-variable {
+    color: #addb67
+}
+
+.hljs-bullet {
+    color: #d9f5dd
+}
+
+.hljs-code {
+    color: #80cbc4
+}
+
+.hljs-emphasis {
+    color: #c792ea;
+    font-style: italic
+}
+
+.hljs-strong {
+    color: #addb67;
+    font-weight: 700
+}
+
+.hljs-formula {
+    color: #c792ea
+}
+
+.hljs-link {
+    color: #ff869a
+}
+
+.hljs-quote {
+    color: #697098;
+    font-style: italic
+}
+
+.hljs-selector-tag {
+    color: #ff6363
+}
+
+.hljs-selector-id {
+    color: #fad430
+}
+
+.hljs-selector-class {
+    color: #addb67;
+    font-style: italic
+}
+
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+    color: #c792ea;
+    font-style: italic
+}
+
+.hljs-template-tag {
+    color: #c792ea
+}
+
+.hljs-template-variable {
+    color: #addb67
+}
+
+.hljs-addition {
+    color: #addb67ff;
+    font-style: italic
+}
+
+.hljs-deletion {
+    color: #ef535090;
+    font-style: italic
+}
+
+
+
+
+
+
+
+
+/* A jacked-up version of Night Owl
+pre code.hljs {
+    display: block !important;
+    overflow-x: auto !important;
+    padding: 1em !important;
+}
+
+code.hljs {
+    padding: 10px 15px 10px 25px !important;
+    margin: 0 auto !important;
+    font-size: 12px !important;
+    border-radius: 4px !important; 
+    max-width: 600px !important;
+}
+
+.hljs {
+    background: #26072e !important;
+    color: #f7e6c1 !important;
+    width: 90% !important;
+}
+
+.hljs-keyword {
+    color: #faa5b9 !important;
+    font-style: italic !important;
+}
+
+.hljs-built_in {
+    color: #5de8a0 !important;
+    font-style: italic !important;
+}
+
+.hljs-type {
+    color: #82aaff !important;
+}
+
+.hljs-literal {
+    color: #ff5874 !important;
+}
+
+.hljs-number {
+    color: #034880 !important;
+}
+
+.hljs-regexp {
+    color: #5ca7e4 !important;
+}
+
+.hljs-string {
+    color: #a7d5fa !important;
+}
+
+.hljs-subst {
+    color: #d3423e !important;
+}
+
+.hljs-symbol {
+    color: #82aaff !important;
+}
+
+.hljs-class {
+    color: #faa5b9 !important;
+}
+
+.hljs-function {
+    color: #82aaff !important;
+}
+
+.hljs-title {
+    color: #dcdcaa !important;
+    font-style: italic !important;
+}
+
+.hljs-params {
+    color: #5de8a0 !important;
+}
+
+.hljs-comment {
+    color: #637777 !important;
+    font-style: italic !important;
+}
+
+.hljs-doctag {
+    color: #7fdbca !important;
+}
+
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+    color: #82aaff !important;
+}
+
+.hljs-meta .hljs-string {
+    color: #ecc48d !important;
+}
+
+.hljs-section {
+    color: #82b1ff !important;
+}
+
+.hljs-attr,
+.hljs-name,
+.hljs-tag {
+    color: #5de8a0 !important;
+}
+
+.hljs-attribute {
+    color: #80cbc4 !important;
+}
+
+.hljs-variable {
+    color: #addb67 !important;
+}
+
+.hljs-bullet {
+    color: #d9f5dd !important;
+}
+
+.hljs-code {
+    color: #80cbc4 !important;
+}
+
+.hljs-emphasis {
+    color: #c792ea;
+    font-style: italic !important;
+}
+
+.hljs-strong {
+    color: #addb67;
+    font-weight: 700 !important;
+}
+
+.hljs-formula {
+    color: #c792ea !important;
+}
+
+.hljs-link {
+    color: #ff869a !important;
+}
+
+.hljs-quote {
+    color: #697098 !important;
+    font-style: italic !important;
+}
+
+.hljs-selector-tag {
+    color: #ff6363 !important;
+}
+
+.hljs-selector-id {
+    color: #fad430 !important;
+}
+
+.hljs-selector-class {
+    color: #addb67 !important;
+    font-style: italic !important;
+}
+
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+    color: #c792ea !important;
+    font-style: italic !important;
+}
+
+.hljs-template-tag {
+    color: #c792ea !important;
+}
+
+.hljs-template-variable {
+    color: #addb67 !important;
+}
+
+.hljs-addition {
+    color: #addb67ff !important;
+    font-style: italic !important;
+}
+
+.hljs-deletion {
+    color: #ef535090 !important;
+    font-style: italic !important;
+} */
