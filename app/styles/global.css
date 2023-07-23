@@ -102,12 +102,13 @@ html {
 }
 
 body {
-    font-size: 1.25rem;
+    font-size: 1.33rem;
     /* 16px */
     padding: 2rem;
     background-color: var(--darkGray);
     line-height: 1.25;
-    font-family: 'Trebuchet MS';
+    /* font-family: 'Trebuchet MS'; */
+        font-family: 'Oxygen', sans-serif;
     color: var(--creme);
     overflow-x: hidden;
 }
@@ -134,18 +135,22 @@ h2 {
 
 button {
     cursor: pointer;
-    padding: 1rem 2rem;
+    padding: 0.7rem 2rem;
     font-size: 1.6rem;
     border: none;
-    background: #007bff;
-    color: white;
+    background: var(--blue);
+    color: var(--darkGray);
+    font-weight: var(--bold);
     border-radius: 5px;
-    outline: none;
+    border: 2px solid var(--darkGray);
+    margin: var(--smallSpacing) 0px;
     transition: all 0.3s ease;
 }
 
 button:hover {
-    background: #0056b3;
+    background: var(--lightGray);
+    color: var(--blue);
+    border: 2px solid var(--blue);
 }
 
 .bigContainer {
@@ -189,6 +194,7 @@ button:hover {
 
 .sectionContainer{
     width: 100%;
+    margin: 10px 0px;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -217,9 +223,37 @@ button:hover {
     margin: var(--smallSpacing) 0px;
 }
 
-.hljs {
-    font-size: 8px;
+/* ************************************ INPUTS ************************************ */
+
+input {
+    accent-color: var(--creme);
+
 }
+
+
+/* Number input styles */
+
+input[type="number"] {
+    width: 70px;
+    text-align: center;
+    padding: 5px;
+    border: 2px solid var(--lightGray);
+    border-radius: var(--smallRadius);
+    background-color: var(--darkGray);
+    color: var(--creme);
+    font-weight: var(--bold);
+    font-size: var(--small);
+    margin-left: 5px;
+}
+
+code {
+    font-family: input-mono, monospace;
+    color: var(--creme);
+    font-weight: 300;
+    font-size: "10px";
+    font-style: normal;
+}
+
 
 /* ************************************ MEDIA QUERIES ************************************ */
 /* SMALL */
@@ -227,9 +261,10 @@ button:hover {
     .contentContainer {
         max-width: 500px;
     }
+
     html {
         font-size: 56.25%;
-          }
+    }
 
 }
 
@@ -239,9 +274,10 @@ button:hover {
     .contentContainer {
         max-width: 700px;
     }
-  html {
-      font-size: 62.5%;
-  }
+
+    html {
+        font-size: 62.5%;
+    }
 }
 
 
@@ -250,8 +286,8 @@ button:hover {
     .contentContainer {
         max-width: 800px;
     }
+
     html {
         font-size: 75%;
     }
 }
-

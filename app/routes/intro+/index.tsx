@@ -1,5 +1,9 @@
-import { ExampleOne } from "~/appComponents/intro/partOne";
-import { Header, SectionContainer } from "~/styles/designComponents";
+import { ExampleOne, ExampleTwo } from "~/appComponents/intro/partOne";
+import {
+  Header,
+  HorizontalStack,
+  SectionContainer,
+} from "~/styles/designComponents";
 
 import * as Example from "~/markdown/index";
 // import hljs from "highlight.js";
@@ -23,14 +27,31 @@ export default function Intro() {
         <SectionContainer
           title="Moving along x axis"
           exampleNumber="1"
-          description="<motion /> enhances React's event system with robust gesture recognition capabilities, allowing it to handle hover, tap, pan, and drag interactions effectively."
+          description={[
+            "whileHover specifies the animation to apply when the mouse cursor hovers over the component.",
+            "'whileTap' specifies the animation to apply when the component is tapped.",
+            "'drag' is used to enable dragging behavior on the component.",
+            "'dragConstraints' defines the limits or constraints within which the component can be dragged. ",
+          ]}
           textShadow="none"
-        >
-          <ExampleOne />
-          <div className="codeContainer">
-            <Example.E01 />
-          </div>
-        </SectionContainer>
+          example={() => <ExampleOne />}
+          markdown={() => <Example.Intro01 />}
+        />
+
+        <SectionContainer
+          title="Motion"
+          exampleNumber="2"
+          description={["Description"]}
+          textShadow="none"
+          example={() => <ExampleTwo />}
+          markdown={() => <Example.Intro02 />}
+        />
+
+        <HorizontalStack spacing="25px">
+          <div>item one</div>
+          <div>item two</div>
+          <div>item three</div>
+        </HorizontalStack>
       </div>
     </div>
   );
