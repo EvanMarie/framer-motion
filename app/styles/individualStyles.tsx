@@ -11,6 +11,8 @@ export const SmallPinkSquare: MotionStyle = {
   alignItems: "center",
   justifyContent: "center",
   flexDirection: "column",
+  zIndex: 2,
+  position: "relative",
 };
 
 export const SmallCyanSquare: MotionStyle = {

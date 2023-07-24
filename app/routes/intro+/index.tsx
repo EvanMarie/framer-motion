@@ -3,14 +3,12 @@ import {
   ExampleOne,
   ExampleThree,
   ExampleTwo,
-} from "~/appComponents/intro/partOne";
+} from "~/routes/intro+/partOne";
 import {
   Header,
   SectionContainer,
 } from "~/styles/designComponents";
-
 import * as Example from "~/markdown/index";
-import NavMenu from "~/styles/navMenu/navMenu";
 
 // import hljs from "highlight.js";
 // import styles from "~/styles/codeMarkdown.css";
@@ -29,7 +27,7 @@ export default function Intro() {
           textShadow="var(--smallShadowBlack)"
           titleColor="var(--green)"
         />
-        <NavMenu />
+
         <SectionContainer
           title="Moving along x axis"
           exampleNumber="1"
@@ -53,8 +51,8 @@ export default function Intro() {
           title="Rotation"
           exampleNumber="2"
           description={[
-            "animate is used to define the animation targets for the element. ",
-            "transition defines the type of transition used for the animation. In this case, it is set to 'spring', which will create a smooth spring-based animation effect.",
+            "animate is used to define the targets for the element. ",
+            "transition defines the type used for the animation. In this case, it is set to 'spring', which will create a smooth bouncing animation effect.",
           ]}
           wordsToHighlight={[
             "animate",

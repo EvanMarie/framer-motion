@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Drawer from "./drawerMenu";
-import { NavBarItem } from "~/styles/styleSpecs";
 import { Link } from "@remix-run/react";
+import { CgMenuBoxed } from "react-icons/cg";
+import DrawerPortal from "./drawerPortal";
 
 export default function NavMenu() {
   const [isDrawerOpen, setIsDrawerOpen] =
@@ -22,31 +23,57 @@ export default function NavMenu() {
       name: "Introduction",
       link: "/intro",
     },
-    // { id: 3, name: "Item 3", link: "/" },
+    {
+      id: 3,
+      name: "Example Pages",
+      link: "/pages",
+    },
     // { id: 4, name: "Item 4", link: "/" },
   ];
 
+  const openMenuStyles = {
+    color: "var(--navMenuColor)",
+    cursor: "pointer",
+  };
+
   return (
-    <div>
-      <button onClick={handleOpenDrawer}>
-        Open Drawer
-      </button>
-      <Drawer
-        isOpen={isDrawerOpen}
-        onClose={handleCloseDrawer}
+    <div
+      style={{
+        position: "fixed",
+        top: "10px",
+        right: "10px",
+      }}
+    >
+      <div
+        onClick={handleOpenDrawer}
+        style={openMenuStyles}
       >
-        <ul>
-          {navMenuItems.map((item) => (
-            <Link to={item.link} key={item.id}>
-              <NavBarItem>{item.name}</NavBarItem>
-            </Link>
-          ))}
-          <NavBarItem> Item 1</NavBarItem>
-          <NavBarItem>Menu Item 2</NavBarItem>
-          <NavBarItem>Menu Item 3</NavBarItem>
-          {/* Add more menu items as needed */}
-        </ul>
-      </Drawer>
+        <CgMenuBoxed
+          size={44}
+          style={openMenuStyles}
+        />
+      </div>
+      <DrawerPortal>
+        <Drawer
+          isOpen={isDrawerOpen}
+          onClose={handleCloseDrawer}
+        >
+          <ul style={{ listStyleType: "none" }}>
+            {navMenuItems.map((item) => (
+              <Link
+                to={item.link}
+                key={item.id}
+                onClick={handleCloseDrawer}
+              >
+                <li className="navBarMenuItem">
+                  {item.name}
+                </li>
+              </Link>
+            ))}
+            {/* Add more menu items as needed */}
+          </ul>
+        </Drawer>
+      </DrawerPortal>
     </div>
   );
 }

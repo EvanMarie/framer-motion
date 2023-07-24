@@ -190,11 +190,14 @@ function ModalFunction({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.6 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           // ^^ had scale: 0.4 and removed
-          // transition={{ duration: 0.4 }}
+          transition={{
+            duration: 0.8,
+            type: "spring",
+          }}
           style={{
             position: "fixed",
             top: 0,
@@ -216,7 +219,7 @@ function ModalFunction({
             exit={{ y: -50 }}
             style={{
               position: "relative",
-              padding: "20px",
+              padding: "20px 5px 5px 5px",
               borderRadius: "5px",
               backgroundColor: "var(--lightGray)",
               maxHeight: "90vh",
@@ -661,4 +664,26 @@ export function Collapsible({
       </CollapsibleContainer>
     </div>
   );
+}
+
+/* ******************************************************************* */
+
+interface GridProps {
+  columns: number;
+  gap: number;
+  children: React.ReactNode;
+}
+
+export function Grid({
+  columns,
+  gap,
+  children,
+}: GridProps) {
+  const gridStyle = {
+    display: "grid",
+    gridTemplateColumns: `repeat(${columns}, 1fr)`,
+    gap: `${gap}px`,
+  };
+
+  return <div style={gridStyle}>{children}</div>;
 }

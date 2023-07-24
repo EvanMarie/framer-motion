@@ -1,7 +1,15 @@
 
 :root {
+
+    /* Break Points */
+    --smallBreakPoint: 500px;
+    --mediumBreakPoint: 800px;
+    --largeBreakPoint: 1100px;
+    
+
     /* Background Colors */
     --darkGray: #20232e;
+    --darkGrayTransparent: rgba(32, 35, 46, 0.8);
     --medGray: #323747;
     --medGrayTransparent: rgba(50, 55, 71, 0.7);
     --medLightGray: #4b5373;
@@ -24,8 +32,15 @@
     --yellow: #FFE874;
     --yellowTransparent: rgba(255, 232, 116, 0.5);
     --orange: #FFA565;
+    --orangeTransparent: rgba(255, 165, 101, 0.5);
+
+    /* SPECIFICS */
+    --navMenuColor: rgba(255, 152, 255, 0.85);
+    --badgeBorderRadius: 10px;
+
 
     /* Font Sizes */
+    --extraSmall: 1.2rem;
     --small: 1.4rem;
     --medium: 1.75rem;
     --large: 2rem;
@@ -34,6 +49,7 @@
     --xxxlarge: 3.5rem;
 
     /* Padding */
+    --extraSmallPadding: 0.5rem;
     --smallPadding: 1rem;
     --mediumPadding: 2rem;
     --largePadding: 3rem;
@@ -54,6 +70,7 @@
 
 
     /* Spacing */
+    --extraSmallSpacing: 0.5rem;
     --smallSpacing: 1rem;
     --mediumSpacing: 2rem;
     --largeSpacing: 3rem;
@@ -108,18 +125,16 @@
 }
 
 html {
-    font-size: 62.5%;
-    /* Reset to 10px, easier to work with rem */
+    font-size: 75%;
+    /* To be able to work with rem */
 }
 
 body {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     /* 16px */
-    padding: 2rem 2rem 4rem 2rem;
-    background-color: var(--medLightGray);
+    padding: 0.25rem;
+    background-color: var(--darkGrayTransparent);
     line-height: 1.25;
-    /* font-family: 'Trebuchet MS'; */
-    /* font-family: 'Oxygen', sans-serif; */
     font-weight: var(--light);
     font-family:  'Ubuntu', sans-serif;
     color: var(--creme);
@@ -200,10 +215,10 @@ button:hover {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: var(--smallPadding);
+    padding: var(--extraSmallPadding);
     background-color: var(--medGray);
     border-radius: var(--smallRadius);
-    margin: 0px 0px var(--smallSpacing) 0px;
+    margin: 0px 0px var(--extraSmallPadding) 0px;
     color: var(--blue);
     box-shadow: var(--mediumShadowBlack);
 }
@@ -216,8 +231,8 @@ button:hover {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: var(--smallPadding);
-    margin: 0px 0px var(--smallSpacing) 0px;
+    padding: var(--extraSmallPadding);
+    margin: 0px 0px var(--extraSmallSpacing) 0px;
     background-color: var(--medTeal);
     border-radius: var(--smallRadius);
     box-shadow: var(--smallShadowBlack);
@@ -232,7 +247,7 @@ button:hover {
     justify-content: flex-start;
     align-items: center;
     background-color: var(--darkGray);
-    padding: var(--mediumPadding);
+    padding: var(--extraSmallPadding);
     border-radius: var(--smallRadius);
     box-shadow: var(--smallShadowBlack);
 }
@@ -241,7 +256,6 @@ button:hover {
     width: 100%;
     max-width: "400px";
     overflow: auto;
-    font-size: "10px";
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -260,43 +274,133 @@ code {
     font-family: monospace;
     color: var(--creme);
     font-weight: 300;
-    font-size: 1.2rem;
+    line-height: 1.25;
+    font-size: 12px;
+}
+
+/* ******************************* NAVIGATION *********************************** */
+
+.navMenu {
+    width: 100%;
+    max-width: 425px;
+}
+
+.navBarMenuItem {
+    margin: 3px 0;
+    padding: 10px 10px;
+    background: none;
+    color: var(--darkGray);
+    font-size: 3rem;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    cursor: pointer;
+    z-index: 1;
+    width: 100%;
+    background-color: var(--blue);
+    color: var(--darkGray);
+}
+.navBarMenuItem:hover {
+    background-color: var(--yellow);
+    color: var(--darkGray);
+}
+
+.inputLabel {
+    font-size: 1.5rem;
+    margin-right: 15px;
 }
 
 
 /* ************************************ MEDIA QUERIES ************************************ */
 /* SMALL */
-@media (max-width: 600px) {
+@media (min-width: 500px) {
+
+    body {
+        font-size: 1.6rem;
+    }
+
+    body, .headingContainer, .contentContainer, .bigContainer, .sectionContainer {
+        padding: var(--smallPadding);
+    }
+
     .contentContainer {
-        max-width: 500px;
+        max-width: 600px;
+    }
+
+    .code {
+        font-size: 12px;
     }
 
     html {
         font-size: 56.25%;
     }
 
+    .codeContainer {
+        max-width: 475px;
+    }
+
+    .navMenu {
+        width: 350px;
+    }
+
+    .navBarMenuItem {
+        font-size: 2.5rem;
+    }
+
 }
 
 
 /* Medium */
-@media (min-width: 601px) and (max-width: 900px) {
+@media (min-width: 800px) {
+
+    body {
+        font-size: 1.7rem;
+    }
+
     .contentContainer {
         max-width: 700px;
     }
 
+
+    .codeContainer {
+            max-width: 500px;
+        }
+
+    .code {
+        font-size: 15px;
+}
+
     html {
         font-size: 62.5%;
+    }
+    .navMenu {
+        width: 350px;
+    } 
+    .navBarMenuItem {
+        font-size: 2rem;
     }
 }
 
 
 /* Large */
-@media (min-width: 901px) {
+@media (min-width: 1100px) {
+    body {
+        font-size: 1.5rem;
+    }
     .contentContainer {
-        max-width: 800px;
+        max-width: 900px;
     }
 
+    .codeContainer {
+        max-width: 600px;
+}
+
     html {
-        font-size: 75%;
+        font-size: 70%;
+    }
+    .navMenu {
+        width: 350px;
+    }
+    .navBarMenuItem {
+        font-size: 2rem;
     }
 }

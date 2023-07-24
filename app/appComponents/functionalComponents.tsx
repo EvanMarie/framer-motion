@@ -16,12 +16,7 @@ export function Slider({
   return (
     <label>
       {" "}
-      <code
-        style={{
-          fontSize: "18px",
-          marginRight: "10px",
-        }}
-      >
+      <code className="inputLabel">
         {" "}
         {children}
       </code>{" "}

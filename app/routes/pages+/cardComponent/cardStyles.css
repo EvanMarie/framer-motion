@@ -1,0 +1,139 @@
+.cardGrid {
+    /* gap: 10px; */
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: space-evenly;
+    gap: var(--smallSpacing);
+
+}
+
+.cardContainer {
+width: 100%;
+max-width: 400px;
+font-weight: 400;
+display: flex;
+flex-direction: column;
+border-radius: var(--largeRadius);
+box-shadow: var(--mediumShadowBlack);
+padding: var(--smallPadding);
+}
+
+.cardHeader {
+    padding: var(--smallPadding) 0px var(--extraSmallPadding) 0px;
+    font-size: var(--xlarge);
+    font-weight: var(--bold);
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    padding: var(--smallPadding) 0px;
+
+
+}
+
+.cardImage {
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: var(--mediumRadius);
+    box-shadow: var(--mediumShadowBlack);
+}
+
+.cardFooter {
+    padding: var(--extraSmallPadding) 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: var(--medium);
+}
+
+
+/* ********************************** Short Text ********************************** */
+
+.shortText {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: "";
+}
+
+.shortText.numberOfLines-1 {
+    -webkit-line-clamp: 1;
+}
+
+.shortText.numberOfLines-2 {
+    -webkit-line-clamp: 2;
+}
+.shortText.numberOfLines-3 {
+    -webkit-line-clamp: 3;
+}
+.shortText.numberOfLines-4 {
+    -webkit-line-clamp: 4;
+}
+.shortText.numberOfLines-5 {
+    -webkit-line-clamp: 5;
+}
+.shortText.numberOfLines-6 {
+    -webkit-line-clamp: 6;
+}
+.shortText.numberOfLines-7 {
+    -webkit-line-clamp: 7;
+}
+
+
+/* ************************************ MEDIA ************************************ */
+@media (min-width: 500px) {
+
+    .cardContainer {
+        padding: var(--mediumPadding);
+    }
+
+}
+
+@media (min-width: 800px) {
+    .cardGrid {
+    grid-template-columns:48% 48%;
+    }
+
+    .cardContainer {
+        font-size: var(--small);   
+    }
+
+    .cardHeader {
+        padding: var(--extraSmallPadding) 0px 0px 0px;
+        font-size: var(--large);
+    }
+
+    .cardImage {
+        max-width: 250px;
+        max-height: 250px;
+    }
+
+    .cardFooter {
+        padding: var(--extraSmallPadding) 0px;
+        font-size: var(--small);
+    }
+
+}
+
+@media (min-width: 1100px) {
+    .cardGrid {
+    grid-template-columns: 32% 32% 32%;
+
+    }
+
+    .cardHeader {
+        font-size: var(--medium);
+    }
+
+    .cardFooter {
+        font-size: var(--extraSmall);
+    }
+
+}

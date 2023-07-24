@@ -7,7 +7,7 @@ import {
 import { FaArrowsAltH } from "react-icons/fa";
 import { BsEmojiSmile } from "react-icons/bs";
 import { ChangeEvent, useState } from "react";
-import { Slider } from "../functionalComponents";
+import { Slider } from "../../appComponents/functionalComponents";
 import {
   Collapsible,
   FlexContainer,
@@ -137,12 +137,7 @@ export function ExampleThree() {
             width="fit-content"
           >
             <label htmlFor="transitionSelect">
-              <code
-                style={{
-                  fontSize: "18px",
-                  marginRight: "10px",
-                }}
-              >
+              <code className="inputLabel">
                 Transition:
               </code>
             </label>
@@ -168,7 +163,7 @@ export function ExampleThree() {
             min={-180}
             max={180}
           >
-            Rotation
+            Rotation:
           </Slider>
         </Collapsible>
         <Collapsible>
@@ -193,6 +188,8 @@ export function ExampleThree() {
     </VerticalStack>
   );
 }
+
+/* ******************************************************************* */
 
 export function ExampleFour() {
   return <div>Example Four</div>;

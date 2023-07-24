@@ -2,6 +2,7 @@
 import type { LinksFunction } from "@remix-run/node";
 import styles from "./styles/global.css";
 import inputStyles from "./styles/inputStyles.css";
+import cardStyles from "./routes/pages+/cardComponent/cardStyles.css";
 
 import {
   Links,
@@ -11,6 +12,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import NavMenu from "./styles/navMenu/navMenu";
 
 export const links: LinksFunction = () => [
   // ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -42,6 +44,7 @@ export const links: LinksFunction = () => [
     href: "https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap",
   },
   { rel: "stylesheet", href: inputStyles },
+  { rel: "stylesheet", href: cardStyles },
 ];
 
 export default function App() {
@@ -57,6 +60,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <NavMenu />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
