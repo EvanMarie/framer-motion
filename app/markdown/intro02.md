@@ -16,7 +16,12 @@ export function ExampleTwo() {
         </motion.div>
       </FlexContainer>
       <div>
-        <Slider value={rotate} set={setRotate} min={-180} max={180}>
+        <Slider
+          value={rotate}
+          set={setRotate}
+          min={-180}
+          max={180}
+        >
           rotate
         </Slider>
       </div>

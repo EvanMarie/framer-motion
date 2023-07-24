@@ -1,5 +1,3 @@
-/* ************************************************************************** */
-
 interface SliderProps {
   children: string;
   value: number;
@@ -18,20 +16,32 @@ export function Slider({
   return (
     <label>
       {" "}
-      <code> {children}</code>{" "}
+      <code
+        style={{
+          fontSize: "18px",
+          marginRight: "10px",
+        }}
+      >
+        {" "}
+        {children}
+      </code>{" "}
       <input
         value={value}
         type="range"
         min={min}
         max={max}
-        onChange={(e) => set(parseFloat(e.target.value))}
+        onChange={(e) =>
+          set(parseFloat(e.target.value))
+        }
       />{" "}
       <input
         type="number"
         value={value}
         min={min}
         max={max}
-        onChange={(e) => set(parseFloat(e.target.value) || 0)}
+        onChange={(e) =>
+          set(parseFloat(e.target.value) || 0)
+        }
       />{" "}
     </label>
   );

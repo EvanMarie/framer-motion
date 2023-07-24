@@ -3,18 +3,26 @@
     /* Background Colors */
     --darkGray: #20232e;
     --medGray: #323747;
+    --medGrayTransparent: rgba(50, 55, 71, 0.7);
+    --medLightGray: #4b5373;
     --lightGray: #8d97b8;
     --lighterGray: #a9b2cf;
     --lightBlue: #b0c0f5;
+    --medTeal: #108491;
+    --medTealTransparent: rgba(16, 132, 145, 0.7);
 
     /* Text Color */
     --creme: #FDF4E7;
 
     /* Accent Colors */
     --pink: #FF98FF;
-    --blue: #46ECFF;
+    --pinkTransparent: rgba(255, 152, 255, 0.5);
+    --blue: #00FFFF;
+    --blueTransparent: rgba(70, 236, 255, 0.3);
     --green: #81FFA7;
+    --greenTransparent: rgba(129, 255, 167, 0.5);
     --yellow: #FFE874;
+    --yellowTransparent: rgba(255, 232, 116, 0.5);
     --orange: #FFA565;
 
     /* Font Sizes */
@@ -34,11 +42,16 @@
 
     /* Font Weights */
     --light: 300;
-    --regular: 400;
+    --normal: 400;
     --semiBold: 500;
-    --bold: 600;
-    --extraBold: 700;
-    --black: 900;
+    --bold: 700;
+
+    /* Font Family */
+    --sansSerif: 'Ubuntu', sans-serif;
+    --serif: Georgia, "Times New Roman", Times, serif;
+    /* --monospace: 'Ubuntu Mono', monospace; */
+    --monospace: 'Share Tech Mono', monospace;
+
 
     /* Spacing */
     --smallSpacing: 1rem;
@@ -75,17 +88,15 @@
 
     /* Transitions */
     --defaultTransition: all 0.3s ease-in-out;
+    --linkTransition: all 0.5s ease-in-out;
     --medTransition: all 0.5s ease-in-out;
     --slowTransition: all 0.7s ease-in-out;
     --defaultTransitionDelay: all 0.3s ease-in-out 0.3s;
     --defaultTransitionFast: all 0.1s ease-in-out;
     --defaultTransitionFastDelay: all 0.1s ease-in-out 0.1s;
 
-    /* Breakpoints */
-    --smallBreakpoint: 576px;
-    --mediumBreakpoint: 768px;
-    --largeBreakpoint: 992px;
-    --xlargeBreakpoint: 1200px;
+    /* Transform */
+    --defaultTransform: scale(1.1);
 
 
 }
@@ -102,15 +113,18 @@ html {
 }
 
 body {
-    font-size: 1.33rem;
+    font-size: 1.5rem;
     /* 16px */
-    padding: 2rem;
-    background-color: var(--darkGray);
+    padding: 2rem 2rem 4rem 2rem;
+    background-color: var(--medLightGray);
     line-height: 1.25;
     /* font-family: 'Trebuchet MS'; */
-        font-family: 'Oxygen', sans-serif;
+    /* font-family: 'Oxygen', sans-serif; */
+    font-weight: var(--light);
+    font-family:  'Ubuntu', sans-serif;
     color: var(--creme);
     overflow-x: hidden;
+    
 }
 
 h1 {
@@ -119,6 +133,22 @@ h1 {
 
 h2 {
     font-size: var(--large);
+}
+
+ul {
+    list-style-type: circle;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--blue);
+    font-weight: var(--bold);
 }
 
 .container {
@@ -160,6 +190,7 @@ button:hover {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    margin-bottom: var(--smallSpacing);
 }
 
 .headingContainer {
@@ -170,7 +201,7 @@ button:hover {
     justify-content: flex-start;
     align-items: flex-start;
     padding: var(--smallPadding);
-    background-color: var(--darkGray);
+    background-color: var(--medGray);
     border-radius: var(--smallRadius);
     margin: 0px 0px var(--smallSpacing) 0px;
     color: var(--blue);
@@ -187,7 +218,7 @@ button:hover {
     align-items: center;
     padding: var(--smallPadding);
     margin: 0px 0px var(--smallSpacing) 0px;
-    background-color: var(--blue);
+    background-color: var(--medTeal);
     border-radius: var(--smallRadius);
     box-shadow: var(--smallShadowBlack);
 }
@@ -200,7 +231,7 @@ button:hover {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: var(--medGray);
+    background-color: var(--darkGray);
     padding: var(--mediumPadding);
     border-radius: var(--smallRadius);
     box-shadow: var(--smallShadowBlack);
@@ -223,35 +254,13 @@ button:hover {
     margin: var(--smallSpacing) 0px;
 }
 
-/* ************************************ INPUTS ************************************ */
-
-input {
-    accent-color: var(--creme);
-
-}
-
-
-/* Number input styles */
-
-input[type="number"] {
-    width: 70px;
-    text-align: center;
-    padding: 5px;
-    border: 2px solid var(--lightGray);
-    border-radius: var(--smallRadius);
-    background-color: var(--darkGray);
-    color: var(--creme);
-    font-weight: var(--bold);
-    font-size: var(--small);
-    margin-left: 5px;
-}
+/* ************************************ CODE ************************************ */
 
 code {
-    font-family: input-mono, monospace;
+    font-family: monospace;
     color: var(--creme);
     font-weight: 300;
-    font-size: "10px";
-    font-style: normal;
+    font-size: 1.2rem;
 }
 
 

@@ -1,0 +1,79 @@
+/* SLIDER */
+input {
+    accent-color: var(--medTeal);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    height: 20px;
+    background-color: var(--lightGray);
+    border-radius: 10px;
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 25px;
+    width: 25px;
+    background-color: var(--medTeal);
+    border-radius: 50%;
+    appearance: none;
+    
+}
+
+/* Additional styles for Firefox */
+input[type="range"]::-moz-range-thumb {
+    height: 25px;
+    width: 25px;
+    background-color: var(--medTeal);
+    border-radius: 50%;
+    border: none;
+    margin-top: -2px;
+}
+
+/* Additional styles for Edge */
+input[type="range"]::-ms-thumb {
+    height: 25px;
+    width: 25px;
+    background-color: var(--medTeal);
+    border-radius: 50%;
+    border: none;
+    margin-top: -2px;
+}
+
+
+/* NUMBER */
+
+input[type="number"] {
+    width: 70px;
+    text-align: center;
+    padding: 5px;
+    border: 2px solid var(--lightGray);
+    border-radius: var(--smallRadius);
+    background-color: var(--darkGray);
+    color: var(--creme);
+    font-weight: var(--bold);
+    font-size: var(--small);
+    margin-left: 5px;
+    border-radius: var(--smallRadius);
+}
+
+/* SELECT */
+select {
+    /* Change the background color */
+    background-color: var(--medGray);
+    color: var(--creme);
+    font-size: var(--small);
+    width: 200px;
+    border-radius: var(--smallRadius);
+    padding: 4px 8px;
+    border: 2px solid var(--lightGray);
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+
+
+

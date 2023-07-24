@@ -1,7 +1,12 @@
-import React, { HTMLAttributes, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import type { HTMLAttributes } from "react";
+import React, { useState } from "react";
+import {
+  motion,
+  AnimatePresence,
+} from "framer-motion";
 import { FaWindowClose } from "react-icons/fa";
 import { DiCode } from "react-icons/di";
+import { CollapsibleContainer } from "./styleSpecs";
 
 /* ******************************************************************* */
 
@@ -55,8 +60,14 @@ interface BreakProps {
   height?: string;
 }
 
-export function Break({ height = "10px" }: BreakProps) {
-  return <div style={{ height: height, width: "100%" }} />;
+export function Break({
+  height = "10px",
+}: BreakProps) {
+  return (
+    <div
+      style={{ height: height, width: "100%" }}
+    />
+  );
 }
 
 /* ******************************************************************* */
@@ -71,6 +82,7 @@ interface SectionContainerProps {
   textShadow?: string;
   markdown?: () => JSX.Element;
   example?: () => JSX.Element;
+  wordsToHighlight?: string[]; // Add the wordsToColor prop
 }
 
 export function SectionContainer({
@@ -83,12 +95,19 @@ export function SectionContainer({
   markdown,
   example,
   textShadow = "none",
+  wordsToHighlight = [], // Default to an empty array if not provided
 }: SectionContainerProps) {
   return (
     <div className="sectionContainer">
       <div className="headingContainer">
         {exampleNumber && (
-          <div style={{ width: "100%", display: "flex", textAlign: "center" }}>
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              textAlign: "center",
+            }}
+          >
             <h3
               style={{
                 fontSize: "2.2rem",
@@ -101,7 +120,11 @@ export function SectionContainer({
             </h3>
           </div>
         )}
-        <FlexContainer direction="column" align="flex-start" padding="2px 5px">
+        <FlexContainer
+          direction="column"
+          align="flex-start"
+          padding="2px 5px"
+        >
           <FlexContainer justify="flex-start">
             <h1
               style={{
@@ -120,9 +143,19 @@ export function SectionContainer({
           >
             {description && (
               <ul>
-                {description.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
+                {description.map(
+                  (item, index) => (
+                    <li key={index}>
+                      {/* Pass the wordsToColor prop to the ColoredText component */}
+                      <HighlightWords
+                        text={item}
+                        wordsToHighlight={
+                          wordsToHighlight
+                        }
+                      />
+                    </li>
+                  )
+                )}
               </ul>
             )}
           </FlexContainer>
@@ -132,7 +165,9 @@ export function SectionContainer({
       {example?.()}
       <Break />
       <Modal>
-        <div className="codeContainer">{markdown?.()}</div>
+        <div className="codeContainer">
+          {markdown?.()}
+        </div>
       </Modal>
     </div>
   );
@@ -146,7 +181,11 @@ interface ModalFunctionProps {
   children: React.ReactNode;
 }
 
-function ModalFunction({ isOpen, onClose, children }: ModalFunctionProps) {
+function ModalFunction({
+  isOpen,
+  onClose,
+  children,
+}: ModalFunctionProps) {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -167,6 +206,7 @@ function ModalFunction({ isOpen, onClose, children }: ModalFunctionProps) {
             justifyContent: "center",
             background: "rgba(0, 0, 0, 0.5)",
             backdropFilter: "blur(3px)",
+            zIndex: 9998,
           }}
           onClick={onClose}
         >
@@ -193,7 +233,7 @@ function ModalFunction({ isOpen, onClose, children }: ModalFunctionProps) {
               }}
               onClick={onClose}
               color="var(--darkGray)"
-              size={20}
+              size={25}
             />
             {children}
           </motion.div>
@@ -208,7 +248,8 @@ interface ModalProps {
 }
 
 export function Modal({ children }: ModalProps) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] =
+    useState(false);
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
@@ -227,7 +268,10 @@ export function Modal({ children }: ModalProps) {
           alignItems: "center",
         }}
       >
-        <DiCode style={{ verticalAlign: "middle" }} size={26} />
+        <DiCode
+          style={{ verticalAlign: "middle" }}
+          size={26}
+        />
         <p
           style={{
             display: "inline-block",
@@ -239,7 +283,10 @@ export function Modal({ children }: ModalProps) {
           Code
         </p>
       </button>
-      <ModalFunction isOpen={isModalOpen} onClose={handleCloseModal}>
+      <ModalFunction
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      >
         {children}
       </ModalFunction>
     </div>
@@ -248,8 +295,7 @@ export function Modal({ children }: ModalProps) {
 
 /* ******************************************************************* */
 
-interface VerticalStackProps extends HTMLAttributes<HTMLDivElement> {
-  spacing?: string;
+export interface MostContainers {
   width?: string;
   height?: string;
   align?: string;
@@ -260,6 +306,14 @@ interface VerticalStackProps extends HTMLAttributes<HTMLDivElement> {
   border?: string | undefined;
   padding?: string | undefined;
   margin?: string | undefined;
+}
+
+/* ******************************************************************* */
+
+interface VerticalStackProps
+  extends HTMLAttributes<HTMLDivElement>,
+    MostContainers {
+  spacing?: string;
 }
 
 export function VerticalStack({
@@ -302,22 +356,14 @@ export function VerticalStack({
 
 /* ******************************************************************* */
 
-interface HorizontalStackProps extends HTMLAttributes<HTMLDivElement> {
+interface HorizontalStackProps
+  extends HTMLAttributes<HTMLDivElement>,
+    MostContainers {
   spacing?: string;
-  width?: string;
-  height?: string;
-  align?: string;
-  justify?: string;
-  bg?: string | undefined;
-  color?: string | undefined;
-  borderRadius?: string | undefined;
-  border?: string | undefined;
-  padding?: string | undefined;
-  margin?: string | undefined;
 }
 
 export function HorizontalStack({
-  spacing = "1rem",
+  spacing = "2rem",
   width = "100%",
   height = "fit-content",
   align = "center",
@@ -352,16 +398,10 @@ export function HorizontalStack({
 
 /* ******************************************************************* */
 
-interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
+interface ContainerProps
+  extends HTMLAttributes<HTMLDivElement>,
+    MostContainers {
   children?: React.ReactNode;
-  width?: string;
-  height?: string;
-  bg?: string | undefined;
-  color?: string | undefined;
-  borderRadius?: string | undefined;
-  border?: string | undefined;
-  padding?: string | undefined;
-  margin?: string | undefined;
 }
 
 export function Container({
@@ -395,19 +435,16 @@ export function Container({
 
 /* ******************************************************************* */
 
-interface FlexContainerProps extends HTMLAttributes<HTMLDivElement> {
+interface FlexContainerProps
+  extends HTMLAttributes<HTMLDivElement>,
+    MostContainers {
   children?: React.ReactNode;
-  width?: string;
-  height?: string;
-  align?: string;
-  justify?: string;
-  direction?: "row" | "row-reverse" | "column" | "column-reverse";
-  bg?: string | undefined;
-  color?: string | undefined;
-  borderRadius?: string | undefined;
-  border?: string | undefined;
-  padding?: string | undefined;
-  margin?: string | undefined;
+
+  direction?:
+    | "row"
+    | "row-reverse"
+    | "column"
+    | "column-reverse";
 }
 
 export function FlexContainer({
@@ -448,13 +485,18 @@ export function FlexContainer({
 
 /* ******************************************************************* */
 
-interface StackContainerProps extends HTMLAttributes<HTMLDivElement> {
+interface StackContainerProps
+  extends HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   width?: string;
   height?: string;
   align?: string;
   justify?: string;
-  direction?: "row" | "row-reverse" | "column" | "column-reverse";
+  direction?:
+    | "row"
+    | "row-reverse"
+    | "column"
+    | "column-reverse";
   spacing?: string;
   bg?: string | undefined;
   color?: string | undefined;
@@ -503,3 +545,120 @@ export function StackContainer({
 }
 
 /* ******************************************************************* */
+
+interface HighlightWordsProps {
+  text: string;
+  wordsToHighlight: string[];
+  highlightColor?: string;
+  color?: string;
+}
+
+export function HighlightWords({
+  text,
+  wordsToHighlight,
+  highlightColor = "var(--blueTransparent)",
+  color = "var(--creme)",
+}: HighlightWordsProps) {
+  const wrapWordsWithColor = (
+    text: string,
+    words: string[],
+    color: string
+  ) => {
+    const regex = new RegExp(
+      `\\b(${words.join("|")})\\b`,
+      "gi"
+    ); // Use word boundaries (\b) to match only whole words
+    return text
+      .split(regex)
+      .map((word, index) => {
+        if (wordsToHighlight.includes(word)) {
+          // Compare without converting to lowercase
+          return (
+            <span
+              key={index}
+              style={{
+                fontWeight: "var(--semiBold)",
+                backgroundColor: highlightColor,
+                color: color,
+                borderRadius: "3px",
+                padding: "0 1px",
+                margin: "0 2px",
+              }}
+            >
+              {word}
+            </span>
+          );
+        }
+        return word;
+      });
+  };
+
+  return (
+    <>
+      {wrapWordsWithColor(
+        text,
+        wordsToHighlight,
+        color
+      )}
+    </>
+  );
+}
+
+/* ******************************************************************* */
+
+interface CollapsibleProps
+  extends HTMLAttributes<HTMLDivElement>,
+    MostContainers {
+  spacing?: string;
+  divider?: boolean;
+}
+
+export function Collapsible({
+  children,
+  width = "100%",
+  height = "fit-content",
+  align = "center",
+  justify = "center",
+  spacing = "2rem",
+  bg,
+  color,
+  borderRadius,
+  border,
+  padding,
+  margin,
+  divider = false,
+}: CollapsibleProps) {
+  return (
+    <div
+      style={{
+        width: width,
+        height: height,
+        backgroundColor: bg,
+        color: color,
+        borderRadius: borderRadius,
+        border: border,
+        padding: padding,
+        margin: margin,
+      }}
+    >
+      <CollapsibleContainer
+        style={{
+          display: "flex",
+          gap: spacing,
+          alignItems: align,
+          justifyContent: justify,
+          width: width,
+          height: height,
+          backgroundColor: bg,
+          color: color,
+          borderRadius: borderRadius,
+          border: border,
+          padding: padding,
+          margin: margin,
+        }}
+      >
+        {children}
+      </CollapsibleContainer>
+    </div>
+  );
+}
