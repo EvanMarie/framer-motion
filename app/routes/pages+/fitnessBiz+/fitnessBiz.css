@@ -1,13 +1,16 @@
 /* define project colors */
 :root {
-    --fitPink: #A61F5E;
-    --fitMagenta: #9303A6;
+    /* --fitPink: #A61F5E; */
+    --fitPink: #6e0265;
+    /* --fitMagenta: #9303A6; */
+    --fitMagenta: #6e0158;
     --fitLightPurple: #6F04D9;
     --fitDarkPurple: #4703A6;
     --fitBlue: #2104D9;
     --fitSilver: #c0c0c0;
-    --fitYellow: cyan;
+    --fitYellow: #53e5f5;
     --fitBlueTransparent: rgba(33, 4, 217, 0.3);
+    --fitDarkPurpleTransparent: rgba(71, 3, 166, 0.4);
 }
 
 body {
@@ -25,8 +28,9 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 15px;
-    background: linear-gradient(to left, var(--fitPink), var(--fitMagenta), var(--fitLightPurple), var(--fitDarkPurple));;
+    height: 10px;
+    /* background: linear-gradient(to left, var(--fitPink), var(--fitMagenta), var(--fitLightPurple), var(--fitDarkPurple));; */
+    background: linear-gradient(to left, cyan, var(--fitSilver));;
     transform-origin: 0%;
 }
 
@@ -38,7 +42,7 @@ body {
     align-items: center;
 }
 
-.mainContent, .titleContainer {
+.mainContent, .titleContainer, .footerContainer, .footer {
     /* margin-top: 10px; */
     /* padding: 10px; */
     width: 100%;
@@ -75,6 +79,7 @@ body {
 /* App.css */
 .parallax-container {
     position: relative;
+    z-index: 1;
     overflow: hidden;
     padding: 20px;
     height: 500px;
@@ -119,6 +124,9 @@ body {
     text-shadow: var(--mediumShadowBlack);
 }
 
+.footerSection {
+    width: 100%;
+}
 
 
 /* ******************************************************************* */
@@ -129,16 +137,28 @@ body {
     }
 }
 
+@media (min-width: 650px) {
+
+    .mainContent,
+    .titleContainer {
+        max-width: 600px;
+    }
+}
+
 
 @media (min-width: 800px) {
-    .mainContent, .titleContainer {
-        max-width: 650px;
+    .mainContent, .titleContainer,
+        .footer{
+        max-width: 750px;
     }
     .fitSectionContent{
-        width: 75%;
+        width: 65%;
     }
     .fitSectionImage{
-        width: 25%;
+        width: 35%;
+    }
+    .footerSection {
+        width: 350px;
     }
 
 }

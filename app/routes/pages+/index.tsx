@@ -3,6 +3,7 @@ import CardComponent, {
   CardGrid,
 } from "./cardComponent/cardComponent";
 import { cardData } from "./cardComponent/testingCards";
+import { Link } from "@remix-run/react";
 
 export default function Pages() {
   return (
@@ -28,17 +29,21 @@ export default function Pages() {
         >
           <CardGrid>
             {cardData.map((card, index) => (
-              <CardComponent
+              <Link
+                to={card.link ?? "/"}
                 key={index}
-                numLines={card.numLines}
-                color={card.color}
-                badgeText={card.badgeText}
-                headerText={card.headerText}
-                bodyText={card.bodyText}
-                footer={card.footer}
-                imageLink={card.imageLink}
-                imageAlt={card.imageAlt}
-              />
+              >
+                <CardComponent
+                  numLines={card.numLines}
+                  color={card.color}
+                  badgeText={card.badgeText}
+                  headerText={card.headerText}
+                  bodyText={card.bodyText}
+                  footer={card.footer}
+                  imageLink={card.imageLink}
+                  imageAlt={card.imageAlt}
+                />
+              </Link>
             ))}
           </CardGrid>
         </div>

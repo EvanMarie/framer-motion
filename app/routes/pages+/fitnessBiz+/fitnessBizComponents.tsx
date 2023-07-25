@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import {
   BsFacebook,
   BsInstagram,
@@ -54,7 +54,7 @@ export function FitSection({
                 ))}
               </ul>
             ) : (
-              <p>{content}</p> // Render content as a paragraph if contentList is not provided
+              <p>{content}</p>
             )}
           </div>
           {image && (
@@ -186,17 +186,21 @@ export function ParallaxImage({
   speed = 0.5,
   children,
 }: ParallaxImageProps) {
-  useEffect(() => {
-    const parallaxImage = document.querySelector(
-      ".parallax-image"
-    ) as HTMLElement;
+  const parallaxImageRef =
+    useRef<HTMLImageElement | null>(null);
 
+  useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.pageYOffset;
-      const parallaxOffset =
-        scrollPosition * speed;
-      parallaxImage.style.transform = `translateY(-${parallaxOffset}px)`;
+      if (parallaxImageRef.current) {
+        const parallaxOffset =
+          scrollPosition * speed;
+        parallaxImageRef.current.style.transform = `translateY(-${parallaxOffset}px)`;
+      }
     };
+
+    // Set the initial position of the parallax image on mount
+    handleScroll();
 
     window.addEventListener(
       "scroll",
@@ -217,6 +221,7 @@ export function ParallaxImage({
         className="parallax-image"
         src={imageUrl}
         alt={altText}
+        ref={parallaxImageRef}
       />
 
       {children}
@@ -245,7 +250,6 @@ export function Footer() {
     <div
       className="footer"
       style={{
-        width: "fit-content",
         marginTop: "10px",
       }}
     >
@@ -256,60 +260,61 @@ export function Footer() {
         justify="space-evenly"
       >
         <Collapsible
-          width="fit-content"
-          spacing="60px"
+          spacing="30px"
           align="flex-start"
         >
           <FlexContainer
             direction="column"
-            width="fit-content"
+            className="footerSection"
           >
-            <h3
-              className="caveat"
-              style={{ fontSize: "3rem" }}
-            >
-              Social Media
-            </h3>
-            <HorizontalStack>
-              <p>
-                <a
-                  href={socialMedia.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <BsFacebook size={30} />
-                </a>
-              </p>
-              <p>
-                <a
-                  href={socialMedia.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <BsTwitter size={30} />
-                </a>
-              </p>
-              <p>
-                <a
-                  href={socialMedia.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <BsInstagram size={30} />
-                </a>
-              </p>
-              <p>
-                <a
-                  href={socialMedia.youtube}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <BsYoutube size={30} />
-                </a>
-              </p>
-            </HorizontalStack>
+            <VerticalStack spacing="5px">
+              <h3
+                className="caveat"
+                style={{ fontSize: "3rem" }}
+              >
+                Social Media
+              </h3>
+              <HorizontalStack>
+                <p>
+                  <a
+                    href={socialMedia.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <BsFacebook size={30} />
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href={socialMedia.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <BsTwitter size={30} />
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href={socialMedia.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <BsInstagram size={30} />
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href={socialMedia.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <BsYoutube size={30} />
+                  </a>
+                </p>
+              </HorizontalStack>
+            </VerticalStack>
           </FlexContainer>
-          <FlexContainer>
+          <FlexContainer className="footerSection">
             <VerticalStack spacing="5px">
               <h3
                 className="caveat"
