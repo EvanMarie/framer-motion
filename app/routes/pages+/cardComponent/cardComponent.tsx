@@ -1,43 +1,56 @@
+import React from "react";
 import { FlexContainer } from "~/styles/designComponents";
 
 interface CardComponentProps {
   children?: React.ReactNode;
   color?: string;
-  badgeText?: string;
+  badgeText?: string | undefined;
   headerText?: string;
+  numLines?: number;
   bodyText?: string;
-  footer?: string;
-  imageLink?: string;
-  imageAlt?: string;
+  footer?: string | undefined;
+  imageLink?: string | undefined;
+  imageAlt?: string | undefined;
 }
 
 export default function CardComponent({
   children,
   color = "var(--orange)",
-  badgeText = "",
+  numLines,
+  badgeText,
   headerText = "",
   bodyText = "",
-  footer = "",
-  imageLink = "",
-  imageAlt = "",
+  footer,
+  imageLink,
+  imageAlt,
 }: CardComponentProps) {
   return (
     <div
       className="cardContainer"
       style={{ backgroundColor: color }}
     >
-      <Badge label={badgeText} />
+      {badgeText && <Badge label={badgeText} />}
       <div className="cardHeader">
         <p>{headerText}</p>
       </div>
       <div className="cardBody">
         <div>
-          <ShortText>{bodyText}</ShortText>
+          {numLines ? (
+            <ShortText numLines={numLines}>
+              {bodyText}
+            </ShortText>
+          ) : (
+            <p>{bodyText}</p>
+          )}
         </div>
-        <Image src={imageLink} alt={imageAlt} />
+        {imageLink && imageAlt && (
+          <Image src={imageLink} alt={imageAlt} />
+        )}
         {children}
       </div>
-      <div className="cardFooter">{footer}</div>
+      {footer && (
+        <div className="cardFooter">{footer}</div>
+      )}
     </div>
   );
 }
@@ -132,17 +145,17 @@ export function CardGrid({
 /* ******************************************************** */
 
 interface ShortTextProps {
-  numberOfLines?: number;
+  numLines?: number;
   children: React.ReactNode;
 }
 
 export function ShortText({
-  numberOfLines = 2,
+  numLines = 2,
   children,
 }: ShortTextProps) {
   return (
     <div
-      className={`shortText numberOfLines-${numberOfLines}`}
+      className={`shortText numberOfLines-${numLines}`}
     >
       {children}
     </div>

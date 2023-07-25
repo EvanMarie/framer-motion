@@ -6,7 +6,6 @@ import {
 } from "framer-motion";
 import { FaWindowClose } from "react-icons/fa";
 import { DiCode } from "react-icons/di";
-import { CollapsibleContainer } from "./styleSpecs";
 
 /* ******************************************************************* */
 
@@ -633,7 +632,11 @@ export function Collapsible({
 }: CollapsibleProps) {
   return (
     <div
+      className="collapsibleContainer"
       style={{
+        gap: spacing,
+        alignItems: align,
+        justifyContent: justify,
         width: width,
         height: height,
         backgroundColor: bg,
@@ -644,24 +647,7 @@ export function Collapsible({
         margin: margin,
       }}
     >
-      <CollapsibleContainer
-        style={{
-          display: "flex",
-          gap: spacing,
-          alignItems: align,
-          justifyContent: justify,
-          width: width,
-          height: height,
-          backgroundColor: bg,
-          color: color,
-          borderRadius: borderRadius,
-          border: border,
-          padding: padding,
-          margin: margin,
-        }}
-      >
-        {children}
-      </CollapsibleContainer>
+      {children}
     </div>
   );
 }

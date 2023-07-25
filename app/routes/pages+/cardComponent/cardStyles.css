@@ -17,6 +17,7 @@ flex-direction: column;
 border-radius: var(--largeRadius);
 box-shadow: var(--mediumShadowBlack);
 padding: var(--smallPadding);
+flex: 1;
 }
 
 .cardHeader {
@@ -32,8 +33,7 @@ padding: var(--smallPadding);
     align-items: center;
     text-align: left;
     padding: var(--smallPadding) 0px;
-
-
+    flex: 1;
 }
 
 .cardImage {

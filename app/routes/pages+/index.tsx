@@ -30,6 +30,7 @@ export default function Pages() {
             {cardData.map((card, index) => (
               <CardComponent
                 key={index}
+                numLines={card.numLines}
                 color={card.color}
                 badgeText={card.badgeText}
                 headerText={card.headerText}
